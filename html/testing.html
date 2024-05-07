@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smooth Scrolling</title>
+    <style>
+        body {
+            font-family: Arial;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: lightblue;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        a {
+            color: white;
+            font-weight: bold;
+            margin-right: 20px;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        a:hover {
+            color: black;
+        }
+
+        section {
+            height: 800px;
+            margin-top: 60px;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-top: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h1>Welcome to my website</h1>
+    </section>
+
+    <section id="about">
+        <h1>About us</h1>
+    </section>
+
+    <section id="services">
+        <h1>Our services</h1>
+    </section>
+
+    <section id="contact">
+        <h1>Contact us</h1>
+    </section>
+
+    <script>
+        function smoothScroll(target, duration) {
+            var target = document.querySelector(target);
+            var targetPosition = target.getBoundingClientRect().top;
+            var startPosition = window.pageYOffset;
+            var distance = targetPosition - startPosition;
+            var startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                var timeElapsed = currentTime - startTime;
+                var run = easing(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function easing(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 *t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        var home = document.querySelector('#home');
+        var about = document.querySelector('#about');
+        var services = document.querySelector('#services');
+        var contact = document.querySelector('#contact');
+
+        var homeLink = document.querySelector('nav a[href="#home"]');
+        var aboutLink = document.querySelector('nav a[href="#about"]');
+        var servicesLink = document.querySelector('nav a[href="#services"]');
+        var contactLink = document.querySelector('nav a[href="#contact"]');
+
+        homeLink.addEventListener('click', function() {
+            smoothScroll('#home', 1000);
+        });
+
+        aboutLink.addEventListener('click', function() {
+            smoothScroll('#about', 1000);
+        });
+
+        servicesLink.addEventListener('click', function() {
+            smoothScroll('#services', 1000);
+        });
+
+        contactLink.addEventListener('click', function() {
+            smoothScroll('#contact', 1000);
+        });
+    </script>
+</body>
+</html>

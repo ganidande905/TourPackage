@@ -1,0 +1,123 @@
+#video_promo1 {
+
+  width: 100%;
+  height: 100%;
+
+  margin-top: 30px;
+
+  margin-top: 51%;
+  margin-left: 35%;
+
+}
+
+#video_promo1 video {
+  width: 30%;
+  height: 100%;
+}
+
+#video_promo1 video:hover {
+  transform: scale(1.2);
+  border: 3px solid;
+  border-radius: 2px;
+  border-color: #FFF7FC;
+
+
+
+}
+
+#video_promo2 {
+  width: 100%;
+  height: 100%;
+
+  margin-top: 30px;
+
+  margin-top: -17.4%;
+  margin-left: 66%;
+
+
+}
+
+#video_promo2 video {
+  width: 30%;
+  height: 100%;
+}
+
+#video_promo2 video:hover {
+  transform: scale(1.2);
+  border: 3px solid;
+  border-radius: 2px;
+  border-color: #FFF7FC;
+
+
+
+}
+
+#video_promo3 {
+  width: 100%;
+  height: 100%;
+
+
+
+
+  margin-left: 4%;
+  margin-top: -16.9%;
+
+
+
+}
+
+#video_promo3 video {
+  width: 30%;
+  height: 150%;
+
+
+
+}
+
+#video_promo3 video:hover {
+  transform: scale(1.2);
+  border: 3px solid;
+  border-radius: 2px;
+  border-color: #FFF7FC;
+
+
+
+}
+
+.video_main {
+  height: 18%;
+  width: 100%;
+  background-color: lightsalmon;
+  background-image: url(div_background.jpeg);
+  backdrop-filter: blur(5px);
+  margin-top: 30%;
+
+
+
+
+}
+
+#text_promo1 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-left: 55px;
+  margin-top: -20px;
+  color: white;
+}
+
+#text_promo2 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-left: 60px;
+  margin-top: -20px;
+  color: white;
+}
+
+
+#text_promo3 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-left: 55px;
+  margin-top: -20px;
+  color: white;
+}
