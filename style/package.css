@@ -49,7 +49,7 @@ header a{
     color: #000000;
 }
 .Main {
-    background-image: url('France.jpg');
+    background-image: url('/assets/France.jpg');
     height: 90vh;
     background-attachment: fixed;
     background-position: center;
@@ -113,36 +113,36 @@ header a{
 }
 
 .paris {
-    background-image: url('./france/paris.webp');
+    background-image: url('/france/paris.webp');
     background-size: cover;
 }
 
 .provence {
-    background-image: url('./france/provence.jpg');
+    background-image: url('/france/provence.jpg');
     background-size: cover;
 
 }
 
 .french-riviera {
-    background-image: url('./france/French-Riviera.jpeg');
+    background-image: url('/france/French-Riviera.jpeg');
     background-size: cover;
 
 }
 
 .loire-valley {
-    background-image: url('./france/Loire\ Valley.jpg');
+    background-image: url('/france/Loire\ Valley.jpg');
     background-size: cover;
 
 }
 
 .mont-saint-michel {
-    background-image: url('./france/Moint-saint.avif');
+    background-image: url('/france/Moint-saint.avif');
     background-size: cover;
 
 }
 
 .bordeaux {
-    background-image: url('./france/Bordeaux.webp');
+    background-image: url('/france/Bordeaux.webp');
     background-size: cover;
 
 }
