@@ -1,0 +1,48 @@
+body{
+    background-image:url(contact_background.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+
+}
+
+.content_div{
+    width: 500px;
+    height: 500px;
+    margin-top: 10%;
+    margin-left:35%;
+    align-items: center;
+    background-color:rgba(237, 232, 206,0.5);
+    align-self: center;
+    max-width: 600px;
+    
+    
+   
+    
+    
+    
+    
+    
+    
+}
+
+#content_text1{
+    text-align: center;
+}
+#heading1{
+    text-align:center ;
+}
+
+#content_text:hover{
+    text-shadow: 3px 3px 3px rgba(79, 106, 240);
+    
+    
+}
+#query_box{
+    width: 45%;
+    height: 4000%;
+    
+}
+#query_box :focus{
+    cursor:text;
+    background-color: azure;
+}
