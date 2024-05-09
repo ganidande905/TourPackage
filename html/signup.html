@@ -221,6 +221,104 @@ header ul li a.active{
     
 }
 
+.flex {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .flex > div {
+    transform: rotate(0deg);
+    width: 80px;
+    height: 550px;
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    box-shadow: 2px 2px 3px rgb(203, 203, 203);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    );
+    margin: 10px;
+    margin-top: 75px;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .wave {
+    animation: slantingAnimation, mymove;
+    animation-duration: 2.2s, 2.2s;
+    animation-timing-function: ease-in-out, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, alternate;
+  }
+
+  .wave:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  .wave:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .wave:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+  .wave:nth-child(5) {
+    animation-delay: 1.2s;
+  }
+  .wave:nth-child(6) {
+    animation-delay: 1.5s;
+  }
+  .wave:nth-child(7) {
+    animation-delay: 1.8s;
+  }
+  .wave:nth-child(8) {
+    animation-delay: 2.1s;
+  }
+  .wave:nth-child(9) {
+    animation-delay: 2.4s;
+  }
+  .wave:nth-child(10) {
+    animation-delay: 2.7s;
+  }
+  .wave:nth-child(11) {
+    animation-delay: 3s;
+  }
+  .wave:nth-child(12) {
+    animation-delay: 3.3s;
+  }
+
+  @keyframes slantingAnimation {
+    0% {
+      transform: translate(0px, -100px) (-50%);
+    }
+    50% {
+      transform: translate(0px, -100px);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes mymove {
+    from {
+      background-color: none;
+    }
+    to {
+      background-color: rgba(69, 44, 255, 0.301);
+    }
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }    
 </style>  
 </body>
 </html>
