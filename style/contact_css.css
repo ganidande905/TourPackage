@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior: smooth;
+
+}
+
 body{
-    background-image:url(contact_background.jpg);
+    background-image:url(/assets/contact_background.jpg);
     background-size:cover;
     background-attachment: fixed;
 
@@ -11,10 +22,13 @@ body{
     margin-top: 10%;
     margin-left:35%;
     align-items: center;
-    background-color:rgba(237, 232, 206,0.5);
+    background-color:rgba(255, 255, 255,0.2);
     align-self: center;
     max-width: 600px;
-    
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.1);
+    overflow: hidden;
+    flex-direction: row;
     
    
     
@@ -27,6 +41,7 @@ body{
 
 #content_text1{
     text-align: center;
+    transform: translateY(40px);
 }
 #heading1{
     text-align:center ;
@@ -45,4 +60,7 @@ body{
 #query_box :focus{
     cursor:text;
     background-color: azure;
+}
+.spare{
+    transform: translateY();
 }

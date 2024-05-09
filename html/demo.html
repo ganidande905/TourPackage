@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior: smooth;
+
+}
+    body{
+        background-color: rgb(255, 255, 255);
+        font-family: Poppins;
+        color: #eee;
+        margin: 0;
+        font-size: 12px;
+        overflow-x: hidden;
+        height: 190vh;
+        
+    }
+    header{
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10000;
+    }
+    header .logo{
+        height: 80px;
+        width: 10;
+    }
+    header ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: medium;
+    }
+    header ul li{
+        list-style: none;
+        margin-left: 20px;
+    }
+    header ul li a{
+        text-decoration: none;
+        padding: 6px 15px;
+        color: #000000;
+        border-radius: 20px;
+        transition: all 0.5s ease;
+    }
+    header ul li a:hover,
+    header ul li a.active{
+        background:gold;
+        
+        
+    }
+    .travel{
+        position:absolute;
+        top: 18.5%;
+        left: 26%;
+        width: auto; /* Ensure this is set so it can revert correctly */
+        padding: 30px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+        background: rgba(179, 227, 242, 0.284);
+        backdrop-filter: blur(20px);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(131, 202, 230, 0.237);
+        align-items: start;
+        display: flex;
+        flex-direction:column;
+        overflow: hidden; /* Ensures no content spills outside */
+        transition: all 0.15s ease-in;
+    }
+
+    .travel ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        gap: 38px;
+    }
+    .travel ul li{
+        list-style: none;
+        margin-left: 20px;
+        
+    }
+    .travel ul li a{
+        text-decoration: none;
+        padding: 6px 15px;
+        color: #000000;
+        border-radius: 20px;
+        transition: all 0.5s ease;
+        font-size: 23px;
+    }
+    .travel ul li a:hover,
+    .travel ul li a.active{
+        background:rgb(149, 194, 254);
+        
+        
+    } 
+    .travel ul li p{
+        color: #000000;
+        transform: translate(6px,10px);
+        font-size: small ;
+    }
+
+    
+    .content {
+        color: #000; /* Adjust text color for better readability */
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Optional: adding subtle text shadow for depth */
+    }
+    
+    
+        .swipe{
+            width: 100%;
+            height:400px;
+            position: relative;
+            top:11.5%;
+            margin-top: 20px;
+            z-index: 1;
+            overflow: hidden;
+    
+        }
+        .swipe .list .item{
+            position: absolute;
+            inset: 0 0 0 0;
+        }
+        
+        .swipe .list .item img{
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+        }
+        .swipe .list .item video{
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+        }
+        .swipe .list .item .content{
+            position: absolute;
+            top: 20%;
+            width: 1140px;
+            max-width: 80%;
+            left:50%;
+            transform:translateX(-60%);
+            padding-right: 30%;
+            box-sizing: border-box;
+            color: #000000;
+            text-shadow: 0 5px 10px #0004;
+
+            
+        }
+
+
+        .swipe .list .item .content .state{
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: gold;
+            font-size:30px;
+        }
+        .swipe .list .item .content .place{
+            font-weight: bold;
+            font-size: 5em;
+            list-style: 1.3em;
+        }
+        .swipe .list .item .content .buttons{
+            display: grid;
+            grid-template-columns: repeat(2,130px);
+            grid-template-rows: 40px;
+            gap:5px;
+            margin-top: 20px;
+        }
+        .swipe .list .item .content button{
+            border: none;
+            background-color: #eee;
+            letter-spacing: 3px;
+            font-family: Poppins;
+            font-weight: 500;
+    
+        }
+        .swipe .list .item .content button:nth-child(2){
+            background-color: transparent;
+            color: #eee;
+            border: 1px solid #eee;
+        }
+        .thumbnail{
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            width: max-content;
+            z-index: 100;
+            display:flex;
+            gap: 20px;
+        }
+        .thumbnail .item{
+            width: 200px;
+            height: 100px;
+            flex-shrink: 0;
+            position: relative;
+        }
+    
+        .thumbnail .item img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .thumbnail .item .content{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: rgb(0, 0, 0);
+            font-weight: bolder;
+    
+        }
+        .thumbnail .item .content .title{
+            font-weight: bolder;
+            color: rgb(0, 0, 0);
+        }
+        .arrows{
+            position: absolute;
+            top: 80%;
+            right: 52%;
+            width: 300px;
+            max-width: 30%;
+            display: flex;
+            gap: 10px;
+            align-items:center;
+        }
+        .arrows button{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.71);
+            border: none;
+            font-family: monospace;
+            color: gold;
+            font-weight: bold;
+            font-size: large;
+            transition: .3s;
+            z-index: 100;
+        }
+        .arrows button:hover{
+            background-color: #eee;
+            color: #555;
+        }
+        .swipe .list .item:nth-child(1){
+            z-index: 1;
+        }
+        .swipe .list .item:nth-child(1) .place,
+        .swipe .list .item:nth-child(1) .state,
+        .swipe .list .item:nth-child(1) .des,
+        .swipe .list .item:nth-child(1) .buttons{
+            transform: translateY(50px);
+            filter: blur(20px);
+            opacity: 0;
+            animation: showContent 0.5s 1s linear 1 forwards;
+        }
+        @keyframes showContent{
+            to{
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+    
+        }
+        .swipe .list .item:nth-child(1) .place{
+            animation-delay: 1.0s;
+        }
+        .swipe .list .item:nth-child(1) .state{
+            animation-delay: 1.2s;
+        }
+        .swipe .list .item:nth-child(1) .des{
+            animation-delay: 1.4s;
+        }
+        .swipe .list .item:nth-child(1) .buttons{
+            animation-delay: 1.6s;
+        }
+        .swipe.next .list .item:nth-child(1) img{
+            width: 150px;
+            height: 220px;
+            position: absolute;
+            left: 50%;
+            bottom: 50px;
+            border-radius: 20px;
+            animation: showImage 1.5s linear 1 forwards;
+        }
+        @keyframes showImage{
+            to{
+                width: 100%;
+                height: 100%;
+                left: 0;
+                bottom: 0;
+                border-radius: 0;
+            }
+        }
+        .swipe.next .thumbnail .item:nth-last-child(1){
+            width: 0;
+            overflow: hidden;
+            animation: showThumbnail .5s linear 1 forwards;
+        }
+        @keyframes showThumbnail{
+            to{
+                width: 150px;
+            }
+        }
+        .swipe.next .thumbnail{
+            transform: translateX(150px);
+            animation: transformThumbnail .5s linear 1 forwards;
+        }
+        @keyframes transformThumbnail {
+            to{
+                transform: translateX(0);
+            }
+            
+        }
+    .swipe.prev .list .item:nth-child(2){
+        z-index: 2;
+    }
+    .swipe.prev .list .item:nth-child(2) img{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: outImage 0.5s linear 1 forwards;
+    }
+    @keyframes outImage{
+        to{
+            width: 200px;
+            height: 100px;
+            border-radius: 20px;
+            left: 50%;
+            bottom: 50px;
+        }
+    }
+    .swipe.prev .thumbnail .item:nth-child(1){
+        width: 0;
+        overflow: hidden;
+        opacity: 0;
+        animation: showThumbnail 0.5s linear 1 forwards;
+    }
+    .swipe.prev .list .item:nth-child(2) .place,
+    .swipe.prev .list .item:nth-child(2) .state,
+    .swipe.prev .list .item:nth-child(2) .des,
+    .swipe.prev .list .item:nth-child(2) .buttons{
+        animation: contentOut 1.5s linear 1 forward;
+    }
+    @keyframes contentOut{
+        to{
+            transform: translateY(-150px);
+            filter: blur(20px);
+            opacity: 0;
+        }
+    }
+    .swipe.next .arrows button,
+    .swipe.prev .arrows button{
+        pointer-events: none;
+    }
+    #search-form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-400px, 250px);
+        display: flex;
+        width: 400px; /* Adjust as needed */
+        height: 50px;
+        background-color: #a8ccfbc2;
+        border-radius: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 50%;
+    }
+    
+    #search-query {
+        flex-grow: 1;
+        border: none;
+        outline: none;
+        padding: 0 10px;
+        font-size: 16px; /* Adjust size as needed */
+        color: #333; /* Better visibility */
+        background-color: transparent;
+        transform: translateX(20px);
+    }
+    
+    #search-form button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transform: translateX(-15px);
+        font-size: x-large;
+    }
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%,99%);
+        width: 1000px;
+        height: 400px;
+        background: #f5f5f5;
+        box-shadow: 0 30px 50px #dbdbdb;
+    }
+    
+    .container .slide .items{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-radius: 20px;
+        box-shadow: 0 30px 50px #505050;
+        background-position: 50% 50%;
+        background-size: cover;
+        display: inline-block;
+        transition: 0.5s;
+    }
+    
+    .slide .items:nth-child(1),
+    .slide .items:nth-child(2){
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    
+    .slide .items:nth-child(3){
+        left: 50%;
+    }
+    .slide .items:nth-child(4){
+        left: calc(50% + 220px);
+    }
+    .slide .items:nth-child(5){
+        left: calc(50% + 440px);
+    }
+    
+    
+    .slide .items:nth-child(n + 6){
+        left: calc(50% + 660px);
+        opacity: 0;
+    }
+    
+    
+    
+    .items .contents{
+        position: absolute;
+        top: 50%;
+        left: 100px;
+        width: 300px;
+        text-align: left;
+        color: #eee;
+        transform: translate(0, -50%);
+        font-family: system-ui;
+        display: none;
+    }
+    
+    
+    .slide .items:nth-child(2) .contents{
+        display: block;
+    }
+    
+    
+    .contents .name{
+        font-size: 40px;
+        text-transform: uppercase;
+        font-weight: bold;
+        opacity: 0;
+        animation: animate 1s ease-in-out 1 forwards;
+    }
+    
+    .contents .dess{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: animate 1s ease-in-out 0.3s 1 forwards;
+    }
+    
+    .contents button{
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        animation: animate 1s ease-in-out 0.6s 1 forwards;
+    }
+    
+    
+    @keyframes animate {
+        from{
+            opacity: 0;
+            transform: translate(0, 100px);
+            filter: blur(33px);
+        }
+    
+        to{
+            opacity: 1;
+            transform: translate(0);
+            filter: blur(0);
+        }
+    }
+    
+    
+    
+    .button{
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 20px;
+    }
+    
+    .button button{
+        width: 40px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin: 0 5px;
+        border: 1px solid #000;
+        transition: 0.3s;
+    }
+    
+    .button button:hover{
+        background: #ababab;
+        color: #fff;
+    }
+    
+    
+</style>
+<body>
+    <img src="/assets/top.jpg" style="width: 00px; height:auto">
+    <header>
+        
+    <a href="#" class="logo"><img src="/assets/logo.jpg" style="height: 130px; width: auto; transform:translate(-60px,-40px)"></a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#sec">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/html/Login-Signup1.html" >LogIn</a></li>
+            
+        </ul>
+        
+    </header>
+    <div class="travel">
+        <ul>
+            <li><a href="#" class="active"><i class='bx bxs-plane'></i></a><p>Flights</p></li>
+            <li><a href="#"><i class='bx bx-buildings' ></i></a><p>Hotels</p></li>
+            <li><a href="#"><i class='bx bx-home' ></i></a><p>Home Stay</p></li>
+            <li><a href="#" ><i class='bx bx-train' ></i></a><p>Trains</p></li>
+            <li><a href="#"><i class='bx bx-bus' ></i></a><p>Buses</p></li>
+            <li><a href="#"><i class='bx bx-taxi'></i></a><p>Cabs</p></li>
+            
+        </ul>
+
+    </div>
+
+    
+    <div class="swipe">
+        <div class="list">
+            <div class="item">
+                <video autoplay loop muted playsinline>
+                    <source src="/assets/delhi.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="content">
+                    <div class="place">GATEWAY OF INDIA</div>
+                    <div class="state">DELHI</div>
+                    
+                    <div class="buttons">
+                        <button>Explore</button>
+                        <button>Package</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <video autoplay loop muted playsinline>
+                    <source src="/assets/kanyakumari.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="content">
+                    <div class="place">KANYAKUMARI</div>
+                    <div class="state">TAMILNADU</div>
+                    <div class="buttons">
+                        <button>Explore</button>
+                        <button>Package</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/varnasi.jpg" alt="">
+                <div class="content">
+                    <div class="place">VARANASI</div>
+                    <div class="state">UTTARPRADESH</div>
+                    <div class="buttons">
+                        <button>Explore</button>
+                        <button>Package</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/munnar.jpg" alt="">
+                <div class="content">
+                    <div class="place">MUNNAR</div>
+                    <div class="state">KERALA</div>
+                    <div class="buttons">
+                        <button>Explore</button>
+                        <button>Package</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/ladhak.jpg" alt="">
+                <div class="content">
+                    <div class="place">LADAKH</div>
+                    <div class="state">JAMMU & KASHMIR</div>
+                    
+                    <div class="buttons">
+                        <button>Explore</button>
+                        <button>Package</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/Goa.jpg" alt="">
+                <div class="content">
+                    <div class="place">BAGA BEACH</div>
+                    <div class="state">GOA</div>
+                    
+                    <div class="buttons">
+                        <button>Explore</button>
+                        <button>Package</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="thumbnail">
+            <div class="item">
+                <img src="/assets/Kanyakumari1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Kanyakumari
+                    </div>
+                    <div class="des">
+                        TamilNadu
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/varanasi1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Varanasi
+                    </div>
+                    <div class="des">
+                        Uttarpradesh
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/munnar1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Munnar
+                    </div>
+                    <div class="des">
+                        Kerala
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/ladakh.jpg">
+                <div class="content">
+                    <div class="title">
+                        Ladakh
+                    </div>
+                    <div class="des">
+                        Jammu & Kashmir
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/assets/Goa1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Baga Beach
+                    </div>
+                    <div class="des">
+                        Goa
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="/assets/delhi1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Gateway Of India
+                    </div>
+                    <div class="des">
+                        delhi
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <div class="time"></div>
+    </div>
+    <form id="search-form">
+        <input type="text" id="search-query" placeholder="Explore Places...">
+        <button type="submit">
+            <i class='bx bx-search-alt'></i>
+        </button>
+    </form>
+    <h1 style="transform: translate(70px,300px); color:#000">Handpicked Collections For You<i class='bx bxs-arrow-to-right' style="font-size: 35px; transform:translate(10px,8px); color:rgb(146, 191, 255)"></i></h1>
+    <div class="container">
+    
+        <div class="slide">
+
+            
+            <div class="items" style="background-image: url(/assets/munnar.jpg);">
+                <div class="contents">
+                    <div class="name">Munnar</div>
+                    <div class="dess">Munnar is a town in the Western Ghats mountain range in India's Kerala state.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="items" style="background-image: url(/assets/Kumarakom.jpg);">
+                <div class="contents">
+                    <div class="name">Kumarakom </div>
+                    <div class="desp">Kumarakom is a popular tourism destination located near the city of Kottayam (10 kilometres (6 mi)), in Kerala, India, famous for its backwater tourism.[1] It is set in the backdrop of the Vembanad Lake, the largest lake in the state of Kerala..</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="items" style="background-image: url(/assets/kanyakumari.jpg);">
+                <div class="contents">
+                    <div class="name">Kanyakumari</div>
+                    <div class="dess">Kanyakumari is a coastal town in the state of Tamil Nadu on India's southern tip. Jutting into the Laccadive Sea, the town was known as Cape Comorin during British rule and is popular for watching sunrise and sunset over the ocean. It's also a noted pilgrimage site thanks to its Bagavathi Amman Temple, dedicated to a consort of Shiva, and its Our Lady of Ransom Church, a center of Indian Catholicism.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="items" style="background-image: url(/assets/dhanushkodi.jpg);">
+                <div class="contents">
+                    <div class="name">Dhanushkodi</div>
+                    <div class="dess">Dhanushkodi is an abandoned town at the south-eastern tip of Pamban Island of the state of Tamil Nadu in India. It is south-east of Pamban and is about 24 kilometres west of Talaimannar in Sri Lanka. The town was destroyed during the 1964 Rameswaram cyclone and remains uninhabited in the aftermath. </div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="items" style="background-image: url(/assets/france.jpg);">
+                <div class="contents">
+                    <div class="name"><p style="color:black">France </p></div>
+                    <div class="dess" ><p style="color: black;">France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. </p></div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="items" style="background-image: url(/assets/switzerland.jpg)">
+                <div class="contents">
+                    <div class="name">Switzerland</div>
+                    <div class="dess">Switzerland is a mountainous Central European country, home to numerous lakes, villages and the high peaks of the Alps. Its cities contain medieval quarters, with landmarks like capital Bern's Zytglogge clock tower and Lucerne's wooden chapel bridge.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="button">
+            <button class="p"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="n"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+    </div>
+    <script>
+        let nextDom = document.getElementById('next');
+        let prevDom = document.getElementById('prev');
+        let swipeDom = document.querySelector('.swipe');
+        let listItemDom = document.querySelector('.swipe .list');
+        let thumbnailDom = document.querySelector('.swipe .thumbnail');
+        let next = document.querySelector('.n')
+        let prev = document.querySelector('.p')
+        next.addEventListener('click', function(){
+            let items = document.querySelectorAll('.items')
+            document.querySelector('.slide').appendChild(items[0])
+        })
+        
+        prev.addEventListener('click', function(){
+            let items = document.querySelectorAll('.items')
+            document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+        })
+        nextDom.onclick = function(){
+            showSlider('next');
+        }
+        prevDom.onclick = function(){
+            showSlider('prev');
+        }
+        let timeRunning = 3000;
+        let timeAutoNext = 5000;
+        let runAutoRun;
+        let runTimeOut;
+        function showSlider(type){
+            let itemSlider = document.querySelectorAll('.swipe .list .item');
+            let itemThumbnail = document.querySelectorAll('.swipe .thumbnail .item');
+
+            if(type === 'next'){
+                listItemDom.appendChild(itemSlider[0]);
+                thumbnailDom.appendChild(itemThumbnail[0]);
+                swipeDom.classList.add('next');
+            }else{
+                let positionLastItem = itemSlider.lentgh -1;
+                listItemDom.prepend(itemSlider[positionLastItem])
+                thumbnailDom.prepend(itemThumbnail[positionLastItem]);
+                swipeDom.classList.add('prev');
+            }
+
+            clearTimeout(runTimeOut);
+            runTimeOut = setTimeout(() =>{
+                swipeDom.classList.remove('next');
+                swipeDom.classList.remove('prev');
+            },timeRunning)
+
+            clearTimeout(runAutoRun);
+            runAutoRun = setTimeout(() =>{
+                nextDom.click();
+            },timeAutoNext);
+        }
+
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.travel');
+            // This should calculate the position at which the navbar should become sticky
+            var sticky = navbar.offsetTop + navbar.offsetHeight;
+        
+            if (window.pageYOffset >= sticky) {
+                navbar.style.position = 'fixed';
+                navbar.style.top = '0'; // Stick to the top of the viewport
+                navbar.style.width = '50%'; // Stretch across the whole width
+                navbar.style.height = '12%'
+
+            } else {
+                navbar.style.position = 'absolute';
+                navbar.style.top = '18.5%'; // Original vertical position
+                navbar.style.left = '26%'; // Original horizontal position
+                navbar.style.width = 'auto'; // Reset the width
+            }
+        });
+        
+    </script>
+</body>
+</html>
