@@ -53,8 +53,18 @@ body{
     
 }
 #query_box{
-    width: 45%;
-    height: 4000%;
+    width: 500px;
+    height: 500px;
+    margin-top: 10%;
+    margin-left:35%;
+    align-items: center;
+    background-color:rgba(255, 255, 255,0.2);
+    align-self: center;
+    max-width: 600px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.1);
+    overflow: hidden;
+    flex-direction: row;
     
 }
 #query_box :focus{
