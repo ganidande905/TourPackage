@@ -17,8 +17,14 @@
     scroll-behavior: smooth;
 
 }
+footer p{
+    text-align:justify;
+    word-wrap:break-word;
+    
+}
     body{
-        background-color: rgb(255, 255, 255);
+
+        
         font-family: Poppins;
         color: #eee;
         margin: 0;
@@ -61,7 +67,7 @@
     }
     header ul li a:hover,
     header ul li a.active{
-        background:gold;
+        background:rgb(149, 194, 254);
         
         
     }
@@ -160,7 +166,7 @@
             transform:translateX(-60%);
             padding-right: 30%;
             box-sizing: border-box;
-            color: #000000;
+            color: rgb(149, 194, 254);
             text-shadow: 0 5px 10px #0004;
 
             
@@ -178,26 +184,50 @@
             font-size: 5em;
             list-style: 1.3em;
         }
-        .swipe .list .item .content .buttons{
-            display: grid;
-            grid-template-columns: repeat(2,130px);
-            grid-template-rows: 40px;
-            gap:5px;
-            margin-top: 20px;
-        }
-        .swipe .list .item .content button{
-            border: none;
-            background-color: #eee;
-            letter-spacing: 3px;
-            font-family: Poppins;
-            font-weight: 500;
-    
-        }
-        .swipe .list .item .content button:nth-child(2){
-            background-color: transparent;
-            color: #eee;
-            border: 1px solid #eee;
-        }
+        .swipe .list .item .content .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.swipe .list .item .content .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.swipe .list .item .content button {
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.swipe .list .item .content button:hover {
+    background-color: rgb(149, 194, 254); /* Adjusted hover background color */
+}
+
+.swipe .list .item .content button:nth-child(2) {
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+/* Adjusted hover effect for the second button */
+.swipe .list .item .content button:nth-child(2):hover {
+    background-color: rgb(149, 194, 254);
+    color: #333;
+    border-color: #333;
+}
+
         .thumbnail{
             position: absolute;
             bottom: 50px;
@@ -225,13 +255,13 @@
             bottom: 10px;
             left: 10px;
             right: 10px;
-            color: rgb(0, 0, 0);
+            color: gold;
             font-weight: bolder;
     
         }
         .thumbnail .item .content .title{
             font-weight: bolder;
-            color: rgb(0, 0, 0);
+            color: rgb(149, 194, 254);
         }
         .arrows{
             position: absolute;
@@ -534,26 +564,105 @@
     }
     
     .button button:hover{
+        
         background: #ababab;
         color: #fff;
     }
+    .exp{
+        width: 40%;
+        z-index: 1;
+        margin-top: 30px;
+        color: #080710;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 5px;
+        position: relative;
+        background: #fff;
+    }
+    .exp::before{
+        content: "";
+        top: 0%;
+        left: -100%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        border-radius: 5px;
+        position: absolute;
+        transition: left 1.2s, color 1.2s;
+        background-color: #404989;
+    }
+    .exp:hover{
+        color: white;
+    }
+    .exp:hover::before{
+        left: 0%;
+    }
     
+    .offers {
+        position: absolute;
+        
+    }
     
+    .offers h1,
+    .offers p {
+        margin: 0;
+    }
+    
+    .offers h1 {
+        color: #000;
+        border-radius: 20px;
+        text-decoration: none;
+        width: 140%;
+        text-align: center;
+    }
+    
+    .offers p {
+        color: #000;
+        text-decoration: underline;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    
+
+    
+    .offers h1:hover,
+    .offers p:hover,
+    .offers h1.active {
+        background:rgb(149, 194, 254);
+        
+    }
+    
+    hr.someClass {
+        background-color: rgba(105, 87, 244, 0.374);
+        width: 80%;
+        height: 9px;
+        border-top: 0px solid black;
+        border-bottom: 0px solid black;
+        transform:translate(170px,90px);
+        border-radius:10px;
+      }
 </style>
 <body>
+    
     <img src="/assets/top.jpg" style="width: 00px; height:auto">
     <header>
         
-    <a href="#" class="logo"><img src="/assets/logo.jpg" style="height: 130px; width: auto; transform:translate(-60px,-40px)"></a>
+    <a href="#" class="logo"><img src="/assets/font.png" style="height: 130px; width: auto; transform:translate(-60px,-40px)"></a>
         <ul>
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#sec">About</a></li>
-            <li><a href="/html/contact.html">Contact</a></li>
+            <li><a href="/html/about.html">Contact</a></li>
             <li><a href="/html/Login-Signup2.html" >LogIn</a></li>
             
         </ul>
         
     </header>
+    <hr CLASS="someClass">
     <div class="travel">
         <ul>
             <li><a href="#" class="active"><i class='bx bxs-plane'></i></a><p>Flights</p></li>
@@ -577,7 +686,7 @@
                 </video>
                 <div class="content">
                     <div class="place">GATEWAY OF INDIA</div>
-                    <div class="state">DELHI</div>
+                    <div class="state">MUMBAI</div>
                     
                     <div class="buttons">
                         <button>Explore</button>
@@ -600,7 +709,10 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/varnasi.jpg" alt="">
+                <video autoplay loop muted playsinline>
+                    <source src="/assets/varanasi.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <div class="content">
                     <div class="place">VARANASI</div>
                     <div class="state">UTTARPRADESH</div>
@@ -611,7 +723,10 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/munnar.jpg" alt="">
+                <video autoplay loop muted playsinline>
+                    <source src="/assets/munnar.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <div class="content">
                     <div class="place">MUNNAR</div>
                     <div class="state">KERALA</div>
@@ -622,7 +737,10 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/ladhak.jpg" alt="">
+                <video autoplay loop muted playsinline>
+                    <source src="/assets/ladhak.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <div class="content">
                     <div class="place">LADAKH</div>
                     <div class="state">JAMMU & KASHMIR</div>
@@ -735,55 +853,99 @@
             
             <div class="items" style="background-image: url(/assets/munnar.jpg);">
                 <div class="contents">
-                    <div class="name">Munnar</div>
-                    <div class="dess">Munnar is a town in the Western Ghats mountain range in India's Kerala state.</div>
-                    <button>See More</button>
+                    <div class="name">To add</div>
+                    <div class="dess"></div>
+                    <button class="exp" onclick="goToPage1('package.html')">EXPLORE</button>
                 </div>
             </div>
             <div class="items" style="background-image: url(/assets/Kumarakom.jpg);">
                 <div class="contents">
-                    <div class="name">Kumarakom </div>
-                    <div class="desp">Kumarakom is a popular tourism destination located near the city of Kottayam (10 kilometres (6 mi)), in Kerala, India, famous for its backwater tourism.[1] It is set in the backdrop of the Vembanad Lake, the largest lake in the state of Kerala..</div>
-                    <button>See More</button>
+                    <div class="name">France</div>
+                    <div class="desp"></div>
+                    <button class="exp" onclick="goToPage1('package.html')">EXPLORE</button>
                 </div>
             </div>
             <div class="items" style="background-image: url(/assets/kanyakumari.jpg);">
                 <div class="contents">
-                    <div class="name">Kanyakumari</div>
-                    <div class="dess">Kanyakumari is a coastal town in the state of Tamil Nadu on India's southern tip. Jutting into the Laccadive Sea, the town was known as Cape Comorin during British rule and is popular for watching sunrise and sunset over the ocean. It's also a noted pilgrimage site thanks to its Bagavathi Amman Temple, dedicated to a consort of Shiva, and its Our Lady of Ransom Church, a center of Indian Catholicism.</div>
-                    <button>See More</button>
+                    <div class="name">To add</div>
+                    <div class="dess"></div>
+                    <button class="exp">EXPLORE</button>
                 </div>
             </div>
             <div class="items" style="background-image: url(/assets/dhanushkodi.jpg);">
                 <div class="contents">
-                    <div class="name">Dhanushkodi</div>
-                    <div class="dess">Dhanushkodi is an abandoned town at the south-eastern tip of Pamban Island of the state of Tamil Nadu in India. It is south-east of Pamban and is about 24 kilometres west of Talaimannar in Sri Lanka. The town was destroyed during the 1964 Rameswaram cyclone and remains uninhabited in the aftermath. </div>
-                    <button>See More</button>
+                    <div class="name">To add</div>
+                    <div class="dess"></div>
+                    <button class="exp">EXPLORE</button>
                 </div>
             </div>
             <div class="items" style="background-image: url(/assets/france.jpg);">
                 <div class="contents">
-                    <div class="name"><p style="color:black">France </p></div>
-                    <div class="dess" ><p style="color: black;">France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. </p></div>
-                    <button>See More</button>
+                    <div class="name"><p >To add</p></div>
+                    <div class="dess" ><p></p></div>
+                    <button class="exp">EXPLORE</button>
                 </div>
             </div>
             <div class="items" style="background-image: url(/assets/switzerland.jpg)">
                 <div class="contents">
-                    <div class="name">Switzerland</div>
-                    <div class="dess">Switzerland is a mountainous Central European country, home to numerous lakes, villages and the high peaks of the Alps. Its cities contain medieval quarters, with landmarks like capital Bern's Zytglogge clock tower and Lucerne's wooden chapel bridge.</div>
-                    <button>See More</button>
+                    <div class="name">To add</div>
+                    <div class="dess"></div>
+                    <button class="exp">EXPLORE</button>
                 </div>
             </div>
 
         </div>
 
         <div class="button">
-            <button class="p"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="p"><i class="fa-solid fa-arrow-left" "></i></button>
             <button class="n"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
     </div>
+    <div class="offers">
+        <h1 style="transform: translate(70px,780px); color:#000" class="active">OFFERS</h1>
+        <p  style="transform: translate(230px,755px); color:#000;text-decoration:underline">Bank offers</p>
+        <p  style="transform: translate(340px,737px); color:#000;text-decoration:underline">Flights</p>
+        <p  style="transform: translate(430px,719px); color:#000;text-decoration:underline">Hotels</p>
+        <p  style="transform: translate(520px,701px); color:#000;text-decoration:underline">Holidays</p>
+        <p  style="transform: translate(620px,682px); color:#000;text-decoration:underline">Trains</p>
+        <p  style="transform: translate(710px,664px); color:#000;text-decoration:underline">Cabs</p>
+    </div>
+    <footer style="color: #000;transform:translate(40px,1300px)">
+        <p>
+           <b> Product Offering</b><br>
+
+        Flights, International Flights, Charter Flights, Hotels, International Hotels, Homestays and Villas, Activities, Holidays In India, International Holidays, Book Hotels From UAE, myBiz for Corporate Travel, Book Online Cabs, Book Bus Tickets, Book Train Tickets, Cheap Tickets to India, Book Flights From US, Book Flights From UAE, Trip Planner, Gift Cards, Gift, Wedding Gift, Anniversary Gift, Birthday Gift,<br> Diwali Gift, Valentines Gift, Farewell Gift, Christmas Gift, New Year Gift, Trip Money, Trip Ideas, Travel Blog, PNR Status, MakeMyTrip Advertising Solutions, One Way Cab
+        <br>
+        <b>WanderTrove</b><br>
+        
+        About Us, Investor Relations, Careers, WT Foundation, Legal Notices, CSR Policy, myPartner - Travel Agent Portal, Foreign Exchange, List your hotel, Partners- Redbus, Partners- Goibibo, Advertise with Us, Partners- BookMyForex, RedBus Ferry Malaysia,<br> RedBus Ferry Singapore, redBus Vietnam, redBus Cambodia, Things to Do in Malaysia,Things to Do in Singapore
+        <br>
+        <b>About the Site</b><br>
+        
+        Customer Support, Payment Security, Privacy Policy, Cookie Policy, User Agreement, Terms of Service, More Offices, Make A Payment, Work From Home, Escalation Channel, Report Security Issues
+        <br>
+        <b>Top Hotels in India</b><br>
+        
+            Fairmont Jaipur, St Regis Goa, Six Senses Fort Barwara, W Goa, Grand Hyatt Goa, Shangri-La Bangalore, The St Regis Mumbai, Taj Rishikesh, Grand Hyatt Mumbai, Le Meridien Delhi, Rambagh Palace Jaipur, Leela Palace Chennai,<br> The Leela Palace Udaipur, Taj Lake Palace Udaipur, Jw Marriott Chandigarh, Alila Diwa Goa, Le Meridien Goa, Taj Lands End Mumbai,<br> Itc Grand Chola Chennai, Itc Maratha Mumbai, Oberoi Udaivilas, Jai Mahal Palace Jaipur, Taj Mahal Tower Mumbai, Marriott Suites Pune, Park Hyatt Chennai, The Leela Palace Jaipur, Jw Marriott Mumbai Sahar, Jw Marriott Mumbai Juhu, <br>The Ritz Carlton Bengaluru, The Oberoi New Delhi, Taj Resort & Convention Centre Goa, Taj Bengal Kolkata, Taj Coromandel Chennai, The Oberoi Gurgaon, The Westin Goa, Jw Marriott Hotel Pune, The Leela Palace New Delhi, Taj West End Bengaluru,<br> The Taj Mahal Palace Mumbai, Best Hotels in India
+        <br>
+        <b>Top International hotels</b><br>
+            Adaaran Club Rannalhi, Marina Bay Sands Singapore, Coco Bodu Hithi, Taj Dubai, Atlantis Hotel Dubai, Amari Phuket, Jw Marriott Dubai, Armani Hotel Dubai, Grand Hyatt Dubai, Saii Lagoon Maldives, Gevora Hotel Dubai, Hyatt Regency Dubai,<br> Pan Pacific Singapore, The Palm Dubai, Caesars Palace, Baiyoke Sky Hotel, Centara Pattaya Hotel, Embudu Village, Orchard Hotel Singapore, Reethi Beach Resort, Ambassador Hotel Bangkok, Dusit Thani Pattaya, Shangri La Singapore,<br> Sunbeam Hotel Pattaya, Taj Samudra Colombo, Bangkok Palace Hotel, Hilton Pattaya, Novotel Phuket Resort, Taj Exotica Resort Maldives, Village Hotel Bugis, Avani Atrium Bangkok, The Plaza New York, Village Hotel Albert Court, Amari Pattaya
+        <br>
+        <b>Quick Links</b><br>
+        
+            Delhi Chennai Flights, Delhi Mumbai Flights, Delhi Goa Flights, Chennai Mumbai flights, Mumbai Hyderabad flights, Kolkata to Rupsi Flights, Rupsi to Guwahati Flights, Pasighat to Guwahati Flights, Delhi to Khajuraho Flights, <br>Cochin to Agatti Island Flights, Hotels in Delhi, Hotels in Mumbai, Hotels In Goa, Hotels In Jaipur, Hotels In Ooty, Hotels In Udaipur, Hotels in Puri, Hotels In North Goa, Hotels In Rishikesh, Honeymoon Packages, Kerala Packages, Kashmir Packages, <br>Ladakh Packages, Goa Packages, Thailand Packages, Sri Lanka Visa, Thailand Visa, Explore Goa, Explore Manali, Explore Shimla, Explore Jaipur, Explore Srinagar
+        <br>
+        <b>Important Links</b><br>
+        
+            Cheap Flights, Flight Status, Kumbh Mela, Domestic Airlines, International Airlines, Indigo, Spicejet, GoAir, Air Asia, Air India, Indian Railways, Trip Ideas, Beaches, Honeymoon Destinations, Romantic Destinations, Popular Destinations, Resorts In Udaipur, <br>Resorts In Munnar, Villas In Lonavala, Hotels in Thailand, Villas In Goa, Domestic Flight Offers, International Flight Offers, UAE Flight Offers, USA, UAE, Saudi Arabia, UK, Oman
+        <br>
+        <b>Corporate Travel</b><br>
+        
+            Corporate Travel, Corporate Hotel Booking, Corporate Flight Booking, Business Travel for SME, GST Invoice for International flights, Business Travel Solutions, GST Invoice for Bus, Corporate Bus booking, myBiz - Best Business Travel Platform,<br> GST Invoice for Flights, GST Invoice for Corporate Travel, GST Invoice for Hotels, myBiz for Small Business, Free cancellation on International Flights</p>
+            <br>
+            <br>
+        </footer>
     <script>
         let nextDom = document.getElementById('next');
         let prevDom = document.getElementById('prev');
@@ -806,6 +968,9 @@
         }
         prevDom.onclick = function(){
             showSlider('prev');
+        }
+        function goToPage1(url){
+            window.location.href = url;
         }
         let timeRunning = 3000;
         let timeAutoNext = 5000;
