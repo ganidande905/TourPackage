@@ -32,9 +32,9 @@
         <section class="container">
           <div class="slider-wrapper">
             <div class="slider">
-              <img id="slide-1" src="plane.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
-              <img id="slide-2" src="car.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
-              <img id="slide-3" src="ship.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
+              <img id="slide-1" src="/assets/plane.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
+              <img id="slide-2" src="/assets/car.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
+              <img id="slide-3" src="/assets/ship.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
             </div>
             <div class="para">
               <span style="font-size: 28px; font-family: 'Poppins',sans-serif; color: white;">Your one-stop platform to travel the World!</span>
@@ -92,13 +92,13 @@
       </div>
     </div>
     <div class="doodle-class">
-      <div class="doodle"><img src="lol.png"></div>
-      <div class="doodle"><img src="air doodle 4 - png (2).png"></div>
-      <div class="doodle"><img src="image-removebg-preview (1).png"></div>
-      <div class="doodle"><img src="image-removebg-preview (1).png"></div>
-      <div class="doodle"><img src="ok (1).png"></div>
-      <div class="doodle"><img src="ok (1).png"></div>
-      <div class="doodle"><img src="ok (1).png"></div>
+      <div class="doodle"><img src="/assets/lol.png"></div>
+      <div class="doodle"><img src="/assets/air doodle 4 - png (2).png"></div>
+      <div class="doodle"><img src="/assets/image-removebg-preview (1).png"></div>
+      <div class="doodle"><img src="/assets/image-removebg-preview (1).png"></div>
+      <div class="doodle"><img src="/assets/ok (1).png"></div>
+      <div class="doodle"><img src="/assets/ok (1).png"></div>
+      <div class="doodle"><img src="/assets/ok (1).png"></div>
     </div>
     <div class="signUpForm">
       <form onsubmit="return false" class="sign-form active">
@@ -217,6 +217,10 @@
     flex: 1 0 100%;
     scroll-snap-align: start;
     padding-top: 15%;
+    display: none;
+  }
+  .slider img.active {
+    display: block;
   }
 
   .slider-nav {
@@ -666,5 +670,14 @@
     document.querySelector(".signUpForm form").style.visibility = "visible";
     document.querySelector('.inLoginForm form').style.visibility = "hidden";
   }
-  
+  let currentSlide = 1;
+  const slideCount = document.querySelectorAll('.slider img').length;
+
+  function nextSlide() {
+    document.getElementById('slide-' + currentSlide).classList.remove('active');
+    currentSlide = currentSlide % slideCount + 1;
+    document.getElementById('slide-' + currentSlide).classList.add('active');
+  }
+
+  setInterval(nextSlide, 2000); // Change slide every 2 seconds
 </script>

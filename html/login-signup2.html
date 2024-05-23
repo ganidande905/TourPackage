@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FootLoose - Where Travel Begins...</title>
-    <link rel="stylesheet" href="style1.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -17,9 +12,7 @@
   </head>
 
   <body>
-    <div class="header">
-      <span><a href="/html/signup.html" style="text-decoration: none; color: rgb(0, 0, 0);">Don't have an account? &nbsp Sign Up here!</a></span>
-    </div>
+    <button class="login-signup" style="font-family: Poppins, sans-serif;">Don't have an account? Signup Here!</button>
     <div class="flex">
       <div class="wave"></div>
       <div class="wave"></div>
@@ -39,12 +32,12 @@
         <section class="container">
           <div class="slider-wrapper">
             <div class="slider">
-              <img id="slide-1" src="/assets/plane.gif" style="height: 50%; width:100%; border-top-right-radius: 90px; border-bottom-left-radius: 80px;"/>
-              <img id="slide-2" src="/assets/car.gif" style="height: 50%; width:100%; border-top-left-radius: 20px; border-bottom-right-radius: 20px;"/>
-              <img id="slide-3" src="/assets/ship.gif" style="height: 50%; width:100%; border-top-right-radius: 20px; border-bottom-left-radius: 20px;"/>
+              <img id="slide-1" src="/assets/plane.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
+              <img id="slide-2" src="/assets/car.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
+              <img id="slide-3" src="/assets/ship.gif" style="height: 50%; width:100%; border-radius: 2em;"/>
             </div>
             <div class="para">
-              <span style="font-size: 28px; font-family: 'Poppins'; color: white;">Your one-stop platform to travel the World!</span>
+              <span style="font-size: 28px; font-family: 'Poppins',sans-serif; color: white;">Your one-stop platform to travel the World!</span>
             </div>
             <div class="slider-nav">
               <a href="#slide-1"></a>
@@ -55,9 +48,9 @@
         </section>
       </div>
       <div class="inLoginForm">
-        <form onsubmit="return false">
+        <form onsubmit="return false" class="sign-form">
           <div class="title">
-            <h3 style="font-family: 'Poppins'">LOGIN</h3>
+            <h3 style="font-family: 'Poppins',sans-serif;">LOGIN</h3>
           </div>
           <div class="inputGroup">
             <label for="email">Email</label>
@@ -106,12 +99,99 @@
       <div class="doodle"><img src="/assets/ok (1).png"></div>
       <div class="doodle"><img src="/assets/ok (1).png"></div>
       <div class="doodle"><img src="/assets/ok (1).png"></div>
-      <div class="doodle"><img src="/assets/foot-1 (2).png"></div>
-      <div class="doodle"><img src="/assets/font.png"></div>
+    </div>
+    <div class="signUpForm">
+      <form onsubmit="return false" class="sign-form active">
+        <div class="title">
+          <h3 style="font-family: 'Poppins', sans-serif">SIGNUP</h3>
+        </div>
+        <div class="inputGroup">
+          <label for="email">Email</label>
+          <input type="text" placeholder="Enter Email" id="email" />
+        </div>
+        <div class="inputGroup">
+          <label for="username">Username</label>
+          <input type="text" placeholder="Enter Password" id="username" />
+        </div>
+        <div class="inputGroup">
+          <label for="password1">Password</label>
+          <input type="password" placeholder="Enter Password" id="password1" />
+        </div>
+        <div class="inputGroup">
+          <label for="password2">Re-enter Password</label>
+          <input type="password" placeholder="Enter Password" id="password2" />
+        </div>
+        <button class="submitForm">Signup</button>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i></div>
+          <div class="fb">
+            <i class="fab fa-facebook" style="font-size: 22px"></i>
+          </div>
+          <div class="in">
+            <i class="fab fa-instagram" style="font-size: 22px"></i>
+          </div>
+          <div class="tw">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-twitter-x"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+              />
+            </svg>
+          </div>
+        </div>
+      </form>
     </div>
   </body>
 </html>
 <style>
+
+.login-signup {
+    width: 365px;
+    z-index: 1;
+    color: #000000;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 25px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.167);
+    backdrop-filter: blur(10px);
+    left: 74%;
+    bottom: 90%;
+    border: none;
+  }
+
+  .login-signup::before {
+    content: "";
+    top: 0%;
+    left: -100%;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    border-radius: 25px;
+    position: absolute;
+    transition: left 0.4s, color 0.4s;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+  }
+
+  .login-signup:hover {
+    color: #ffffff;
+  }
+
+  .login-signup:hover::before {
+    left: 0%;
+  }
+
   .para {
     position: absolute;
     left: 15%;
@@ -128,7 +208,7 @@
     overflow: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    width: 63%;
+    width: 60%;
     height: 31.57rem;
     margin-left: 22%;
   }
@@ -202,41 +282,34 @@
     top: 83%;
   }
 
-  .header {
-    position: absolute;
-    bottom: 92.5%;
-    left: 79%;
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
-    border-radius: 20px;
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-weight: 500;
-    background: linear-gradient(to top left, rgba(255, 255, 255, 0.167),rgba(255, 255, 255, 0.167));
-    backdrop-filter: blur(10px);
-    transform: translate(-20px,20px);
-  }
-
   .app-desc {
     background-color: rgba(0, 0, 0, 0.7);
     background-size: contain;
     width: 36rem;
     height: 31.57rem;
     position: fixed;
-    bottom: 19.5%;
+    bottom: 15.7%;
     left: 45.5%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     z-index: 1;
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     border-bottom-right-radius: 15%;
-    transition: 1s;
+    transition: 0.15s;
   }
 
   .app-desc:hover {
     background-color: rgba(0, 0, 0, 0.78);
+  }
+
+  .app-desc.active {
+    left: 21%;
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 10px;
+    width: 35.5rem;
+  }
+  body.active {
+    background-image: linear-gradient(225deg, #218248 0%, #1c8eab 50%, #7817a5 100%);
   }
 
   .describe {
@@ -364,9 +437,9 @@
     justify-content: center;
     background-image: linear-gradient(
       43deg,
-      #3954e5 0%,
-      #7989f3 46%,
-      #9b8ece 100%
+      #112494 0%,
+      #b01ca6 46%,
+      #cf9e34 100%
     );
   }
 
@@ -377,6 +450,7 @@
     height: 31.6rem;
     max-width: 378px;
     position: absolute;
+    visibility: visible;
   }
 
   .inLoginForm form {
@@ -391,12 +465,42 @@
     border: 2px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(0, 0, 0, 0.167);
     border-top-left-radius: 15%;
+    visibility: visible;
   }
+
+  .signUpForm {
+    left: 56%;
+    top: 8.4%;
+    width: 25rem;
+    height: 42.5rem;
+    max-width: 320px;
+    position: absolute;
+  }
+
+  .signUpForm h3 {
+    margin-top: 35px;
+  }
+
+  .signUpForm form {
+  width: 19rem;
+  height: 42.5rem;
+  max-width: 320px;
+  position: absolute;
+  padding: 5px 35px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.167);
+  border-bottom-right-radius: 50px;
+  visibility: hidden;
+}
+
 
   form * {
     border: none;
     outline: none;
-    color: #000000;
+    color: #ffffff;
     font-family: "Poppins", sans-serif;
   }
 
@@ -423,6 +527,16 @@
     top: 68%;
     background: linear-gradient(#ff999c, #460b50);
     z-index: 0;
+  }
+
+  .circle:first-child.active {
+    background: linear-gradient(#c1096f, #081383);
+  }
+
+  .circle:nth-child(2).active {
+    background: linear-gradient(#2d0e84, #26c2df);
+    left: 72.5%;
+    top: 78%;
   }
 
   .title {
@@ -481,11 +595,11 @@
     border-radius: 5px;
     position: absolute;
     transition: left 0.4s, color 0.4s;
-    background-color: #404989;
+    background-color: #202020;
   }
 
   .submitForm:hover {
-    color: #ffffff;
+    color: #fff;
   }
 
   .submitForm:hover::before {
@@ -535,11 +649,22 @@
   }
 </style>
 <script>
-  const inLoginForm = document.querySelector('.inLoginForm');
-  const app_desc = document.querySelector('.app-desc');
-  const header = document.querySelector('.header');
+  const signupbtn = document.querySelector(".login-signup");
+  const app_desc = document.querySelector(".app-desc");
+  const body = document.querySelector("body");
+  const circle1 = document.querySelector(".circle:first-child");
+  const circle2 = document.querySelector(".circle:nth-child(2)");
+  const signform = document.querySelector(".sign-form");
+  
 
-  header.onclick = function(){
-    inLoginForm.add('active')
+  signupbtn.onclick = function () {
+    app_desc.classList.add("active");
+    body.classList.add("active");
+    circle1.classList.add("active");
+    circle2.classList.add("active");
+    signform.classList.add("active");
+    document.querySelector(".signUpForm form").style.visibility = "visible";
+    document.querySelector('.inLoginForm form').style.visibility = "hidden";
   }
+  
 </script>
