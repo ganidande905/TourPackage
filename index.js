@@ -2,24 +2,55 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+const crypto= require('crypto');
 const port = 3000;
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-// app.use(express.static(path.join(__dirname, 'assets')));
-// app.use(express.static(path.join(__dirname, 'style')));
-// app.use(express.static(path.join(__dirname, 'script')));
 
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'public')));
 
+const secret_key=crypto.randomBytes(32).toString('hex');
+
+const generateToken = (user) => {
+    return jwt.sign(user, secret_key, { expiresIn: '1h' });
+};
+
+function checkauth(req,res,next){
+    if (req.path==="/" || req.path==="/loginsubmit" || req.path==="/register"){
+        return next();
+    }
+    const token= req.cookies.token;
+    if (!token){
+        res.status(401).send("unauthorized, try logging in again!");
+        setTimeout(()=>{
+            res.redirect("/");
+        },3000);
+        
+    }
+
+    jwt.verify(token,secret_key,(err,decoded)=>{
+        if (err){
+            return res.status(401).send("unauthorized");
+        }
+        req.user=decoded;
+        next();
+    });
+}
+app.use(checkauth);
+
 const users = {
-    user1: {
-        username: 'admin',
-        password: 'password',
+    "admin": {
+        password: 'admin',
+        email:''
     },
-    user2: {
-        username: 'user',
-        password: 'passworduser',
+    "demo": {
+        password: 'abcd123',
+        email:''
     }
 };
 
@@ -80,27 +111,27 @@ let placesList = [
     }
 ];
 
-
-
-
-
-app.get('/', (req, res) => {
-    // res.sendFile(__dirname + '/html/homepage.html');
-    res.render('homepage')
+app.get('/',(req, res) => {
+    res.render('login');
 });
-app.get('/package',(req,res)=>{
-    res.render('package')
-})
-app.get('/login',(req,res)=>{
-    res.render('login')
-})
+
+
+app.get('/package/:place',(req,res)=>{
+    const place= req.params;
+    console.log("got",place);
+    res.render('package');
+});
 
 app.post('/loginsubmit',(req,res)=>{
-    const username = req.body.name;
+    const username = req.body.username;
     const password = req.body.password;
+    console.log(username);
+    console.log(password);
     if (users[username]) {
         if (users[username].password === password) {
-            req.session.username = username;
+            const token=generateToken({username});
+            res.cookie('token',token,{httpOnly:true});
+
             res.redirect('/homepage');
         } else {
             res.send('Invalid username or password');
@@ -108,7 +139,28 @@ app.post('/loginsubmit',(req,res)=>{
     } else {
         res.send('Invalid username or password');
     }
-})
+});
+
+app.get('/homepage',(req,res)=>{
+    res.render('homepage');
+});
+
+app.post('/register',(req,res)=>{
+    const username=req.body.username;
+    const password1=req.body.password1;
+    const password2=req.body.password2;
+    const email=req.body.email;
+    if (password1 !== password2){
+        res.send("Password not matching. Try again");
+    }
+    
+    if (!users[username]){
+        users[username]={'password':password1};
+        res.redirect('/');
+    } else {
+        res.send("Username exist. Try again with different name");
+    }
+});
 
 app.listen(port, () => {
     console.log("running at http://localhost:" + port);

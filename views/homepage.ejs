@@ -690,7 +690,7 @@ footer p{
                     
                     <div class="buttons">
                         <button>Explore</button>
-                        <button>Package</button>
+                        <button onclick="change('Mumbai')">Package</button>
                     </div>
                 </div>
             </div>
@@ -704,7 +704,7 @@ footer p{
                     <div class="state">TAMILNADU</div>
                     <div class="buttons">
                         <button>Explore</button>
-                        <button>Package</button>
+                        <button onclick="change('Kanyakumari')">Package</button>
                     </div>
                 </div>
             </div>
@@ -718,7 +718,7 @@ footer p{
                     <div class="state">UTTARPRADESH</div>
                     <div class="buttons">
                         <button>Explore</button>
-                        <button>Package</button>
+                        <button onclick="change('Varanasi')">Package</button>
                     </div>
                 </div>
             </div>
@@ -732,7 +732,7 @@ footer p{
                     <div class="state">KERALA</div>
                     <div class="buttons">
                         <button>Explore</button>
-                        <button>Package</button>
+                        <button onclick="change('Munnar')">Package</button>
                     </div>
                 </div>
             </div>
@@ -747,7 +747,7 @@ footer p{
                     
                     <div class="buttons">
                         <button>Explore</button>
-                        <button>Package</button>
+                        <button onclick="change('Ladakh')">Package</button>
                     </div>
                 </div>
             </div>
@@ -759,7 +759,7 @@ footer p{
                     
                     <div class="buttons">
                         <button>Explore</button>
-                        <button>Package</button>
+                        <button onclick="change('Goa')">Package</button>
                     </div>
                 </div>
             </div>
@@ -1002,7 +1002,9 @@ footer p{
                 nextDom.click();
             },timeAutoNext);
         }
-
+        function change(place){
+            window.location='/package/'+place;
+        }
         window.addEventListener('scroll', function() {
             var navbar = document.querySelector('.travel');
             // This should calculate the position at which the navbar should become sticky
