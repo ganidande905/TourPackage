@@ -37,7 +37,7 @@ footer p{
         color: #eee;
         margin: 0;
         font-size: 12px;
-        overflow-x: hidden;
+        overflow-x:hidden;
         height: 190vh;
         width:200vh;
         
@@ -149,6 +149,7 @@ footer p{
             margin-top: 20px;
             z-index: 1;
             overflow: hidden;
+            transform: translate(20px,-5px);
     
         }
         .swipe .list .item{
@@ -414,7 +415,7 @@ footer p{
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-400px, 250px);
+        transform: translate(-400px, 280px);
         display: flex;
         width: 400px; /* Adjust as needed */
         height: 50px;
@@ -446,7 +447,7 @@ footer p{
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-70%,99%);
+        transform: translate(-70%,110%);
         width: 1000px;
         height: 400px;
         background: #f5f5f5;
@@ -662,13 +663,100 @@ footer p{
         margin-left:0px;
 
       }
+/* Existing styles */
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform: translate(20px,870px);
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 190px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.testimonial-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.testimonial-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.testimonial-content p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonial-card {
+        width: 100%;
+    }
+}
+
+/* Updated arrow styles */
+.testimonials .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 123, 255, 0.8); /* Changed to aesthetic blue */
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.testimonials .arrow:hover {
+    background-color: rgba(0, 123, 255, 1); /* Darker blue on hover */
+}
+
+.testimonials .prev {
+    left: 50px; /* Adjusted position */
+}
+
+.testimonials .next {
+    right: 50px; /* Adjusted position */
+}
+
+
 </style>
 <body>
     
     <img src="/assets/top.jpg" style="width: 00px; height:auto">
     <header>
         
-    <a href="#" class="logo"><img src="/assets/font.png" style="height: 130px; width: auto; transform:translate(-60px,-40px)"></a>
+    <a href="#" class="logo"><img src="/assets/roamify-side.png" style="height: 100px; width: auto; transform:translate(-60px,-40px)"></a>
         <ul>
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#sec">About</a></li>
@@ -704,10 +792,7 @@ footer p{
                     <div class="place">GATEWAY OF INDIA</div>
                     <div class="state">MUMBAI</div>
                     
-                    <div class="buttons">
-                        <button>Explore</button>
-                        <button>Package</button>
-                    </div>
+
                 </div>
             </div>
             <div class="item">
@@ -718,10 +803,7 @@ footer p{
                 <div class="content">
                     <div class="place">KANYAKUMARI</div>
                     <div class="state">TAMILNADU</div>
-                    <div class="buttons">
-                        <button>Explore</button>
-                        <button>Package</button>
-                    </div>
+
                 </div>
             </div>
             <div class="item">
@@ -732,10 +814,7 @@ footer p{
                 <div class="content">
                     <div class="place">VARANASI</div>
                     <div class="state">UTTARPRADESH</div>
-                    <div class="buttons">
-                        <button>Explore</button>
-                        <button>Package</button>
-                    </div>
+
                 </div>
             </div>
             <div class="item">
@@ -746,10 +825,7 @@ footer p{
                 <div class="content">
                     <div class="place">MUNNAR</div>
                     <div class="state">KERALA</div>
-                    <div class="buttons">
-                        <button>Explore</button>
-                        <button>Package</button>
-                    </div>
+
                 </div>
             </div>
             <div class="item">
@@ -760,11 +836,7 @@ footer p{
                 <div class="content">
                     <div class="place">LADAKH</div>
                     <div class="state">JAMMU & KASHMIR</div>
-                    
-                    <div class="buttons">
-                        <button>Explore</button>
-                        <button>Package</button>
-                    </div>
+
                 </div>
             </div>
             <div class="item">
@@ -773,10 +845,7 @@ footer p{
                     <div class="place">BAGA BEACH</div>
                     <div class="state">GOA</div>
                     
-                    <div class="buttons">
-                        <button>Explore</button>
-                        <button>Package</button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -871,7 +940,7 @@ footer p{
                 <div class="contents">
                     <div class="name">To add</div>
                     <div class="dess"></div>
-                    <button class="exp" onclick="goToPage1('package.html')">EXPLORE</button>
+                    <button class="exp" onclick="goToPage1('/views/package.ejs')">EXPLORE</button>
                 </div>
             </div>
             <div class="items" style="background-image: url(/assets/Kumarakom.jpg);">
@@ -927,6 +996,48 @@ footer p{
         <p  style="transform: translate(620px,682px); color:#000;text-decoration:underline">Trains</p>
         <p  style="transform: translate(710px,664px); color:#000;text-decoration:underline">Cabs</p>
     </div>
+    <div class="testimonials">
+        <button class="arrow prev"><i class='bx bx-left-arrow-alt'></i></button>
+        <button class="arrow next"><i class='bx bx-right-arrow-alt'></i></button>
+        <div class="testimonial-card">
+            <div class="testimonial-image">
+                <img src="https://via.placeholder.com/150" alt="User Image">
+            </div>
+            <div class="testimonial-content">
+                <h3>User Name</h3>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor bibendum."</p>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-image">
+                <img src="https://via.placeholder.com/150" alt="User Image">
+            </div>
+            <div class="testimonial-content">
+                <h3>User Name</h3>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor bibendum."</p>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-image">
+                <img src="https://via.placeholder.com/150" alt="User Image">
+            </div>
+            <div class="testimonial-content">
+                <h3>User Name</h3>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor bibendum."</p>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-image">
+                <img src="https://via.placeholder.com/150" alt="User Image">
+            </div>
+            <div class="testimonial-content">
+                <h3>User Name</h3>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor bibendum."</p>
+            </div>
+        </div>
+    </div>
+    
+    
     <footer style="color: #000;transform:translate(8px,1300px); font-size:11px">
         <p>
            <b> Product Offering</b><br>
@@ -966,6 +1077,36 @@ footer p{
             <i class='bx bx-down-arrow-alt'></i>
           </div>
     <script>
+        const testimonials = document.querySelector('.testimonials');
+        const prevArrow = document.querySelector('.prev');
+        const nextArrow = document.querySelector('.next');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        
+        let currentSlide = 0;
+        
+        function goToSlide(slide) {
+            testimonialCards.forEach((card, index) => {
+                card.style.transform = `translateX(${100 * (index - slide)}%)`;
+            });
+        }
+        
+        prevArrow.addEventListener('click', () => {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = testimonialCards.length - 1;
+            }
+            goToSlide(currentSlide);
+        });
+        
+        nextArrow.addEventListener('click', () => {
+            currentSlide++;
+            if (currentSlide > testimonialCards.length - 1) {
+                currentSlide = 0;
+            }
+            goToSlide(currentSlide);
+        });
+        
+        goToSlide(currentSlide);
         let nextDom = document.getElementById('next');
         let prevDom = document.getElementById('prev');
         let swipeDom = document.querySelector('.swipe');
