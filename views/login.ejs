@@ -53,8 +53,8 @@
             <h3 style="font-family: 'Poppins',sans-serif;">LOGIN</h3>
           </div>
           <div class="inputGroup">
-            <label for="name">Username</label>
-            <input type="name" placeholder="Enter Username" id="name" />
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" id="username" name="username"/>
           </div>
           <div class="inputGroup">
             <label for="password">Password</label>
@@ -63,6 +63,7 @@
               placeholder="Enter Password"
               id="password"
               style="margin-bottom: 7px"
+              name="password"
             />
             <a href="https://www.wikipedia.org/" style="text-decoration: none"
               ><span style="font-size: 13px">Forgot Password?</span></a
@@ -101,25 +102,25 @@
       <div class="doodle"><img src="/assets/ok (1).png"></div>
     </div>
     <div class="signUpForm">
-      <form onsubmit="return false" class="sign-form active">
+      <form action="/register" method="post" class="sign-form active">
         <div class="title">
           <h3 style="font-family: 'Poppins', sans-serif">SIGNUP</h3>
         </div>
         <div class="inputGroup">
           <label for="email">Email</label>
-          <input type="text" placeholder="Enter Email" id="email" />
+          <input type="text" placeholder="Enter Email" id="email" name="email"/>
         </div>
         <div class="inputGroup">
           <label for="username">Username</label>
-          <input type="text" placeholder="Enter Password" id="username" />
+          <input type="text" placeholder="Enter Password" id="username" name="username"/>
         </div>
         <div class="inputGroup">
           <label for="password1">Password</label>
-          <input type="password" placeholder="Enter Password" id="password1" />
+          <input type="password" placeholder="Enter Password" id="password1" name="password1"/>
         </div>
         <div class="inputGroup">
           <label for="password2">Re-enter Password</label>
-          <input type="password" placeholder="Enter Password" id="password2" />
+          <input type="password" placeholder="Enter Password" id="password2" name="password2"/>
         </div>
         <button class="submitForm">Signup</button>
         <div class="social">
