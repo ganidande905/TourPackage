@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const crypto= require('crypto');
-const port = 3000;
+const port = 7000;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -142,7 +142,7 @@ app.post('/loginsubmit',(req,res)=>{
 });
 
 app.get('/homepage',(req,res)=>{
-    res.render('homepage');
+    res.render('homecheck');
 });
 
 app.post('/register',(req,res)=>{
