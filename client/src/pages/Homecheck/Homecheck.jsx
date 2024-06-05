@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
 import './style.css';
 
 
@@ -69,6 +71,9 @@ function App() {
                 </div>
               </div>
               <button className="btn-explore">Explore more <i className="ri-arrow-right-line"></i> </button>
+              <li><Link to="/package/France">France</Link></li>
+                <li><Link to="/package/Ladakh">Ladakh</Link></li>  {/*this code is used to link to package .. make a button with this*/}
+                <li><Link to="/package/Munnar">Munnar</Link></li>
             </div>
           </div>
         </div>
