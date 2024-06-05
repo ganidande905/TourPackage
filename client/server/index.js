@@ -65,21 +65,39 @@ const users = {
 let placesList = [
     {
         Place: "France",
-        dest1: { destinationName: "Paris", imageSrc: "imgsrclink" },
-        dest2: { destinationName: "Provence", imageSrc: "imgsrclink" },
-        dest3: { destinationName: "French Riviera", imageSrc: "imgsrclink" },
-        dest4: { destinationName: "Loire Valley", imageSrc: "../../../public/assets/france/Loire\ Valley.jpg" },
-        dest5: { destinationName: "Mont Saint-Michel", imageSrc: "imgsrclink" },
-        dest6: { destinationName: "Bordeaux", imageSrc: "imgsrclink" }
+        Imger:"./france/France.jpg",
+        dest1: { destinationName: "Paris", imageSrc: "./france/France.jpg" },
+        dest2: { destinationName: "ggu", imageSrc: "./france/France.jpg" },
+        dest3: { destinationName: "ggu", imageSrc: "./france/France.jpg" },
+
+        dest4: { destinationName: "ggu", imageSrc: "./france/France.jpg" },
+
+        dest5: { destinationName: "ggu", imageSrc: "./france/France.jpg" },
+
+        dest6: { destinationName: "ggu", imageSrc: "./france/France.jpg" },
+
+        
+
+        // dest2: { destinationName: "Provence", imageSrc: "imgsrclink" },
+        // dest3: { destinationName: "French Riviera", imageSrc: "imgsrclink" },
+        // dest4: { destinationName: "Loire Valley", imageSrc: "../../../public/assets/france/Loire\ Valley.jpg" },
+        // dest5: { destinationName: "Mont Saint-Michel", imageSrc: "imgsrclink" },
+        // dest6: { destinationName: "Bordeaux", imageSrc: "imgsrclink" }
     },
     {
         Place: "Ladakh",
-        dest1: { destinationName: "Pangong Lake", imageSrc: "imgsrclink" },
-        dest2: { destinationName: "Nubra Valley", imageSrc: "imgsrclink" },
-        dest3: { destinationName: "Thiksey Monastery", imageSrc: "imgsrclink" },
-        dest4: { destinationName: "Hemis Monastery", imageSrc: "imgsrclink" },
-        dest5: { destinationName: "Khardung La Pass", imageSrc: "imgsrclink" },
-        dest6: { destinationName: "Shanti Stupa", imageSrc: "imgsrclink" }
+        Imger:"./France.jpg",
+
+        dest1: { destinationName: "Paris", imageSrc: "./France.jpg" },
+        dest2: { destinationName: "ggu", imageSrc: "./France.jpg" },
+        dest3: { destinationName: "ggu", imageSrc: "./France.jpg" },
+
+        dest4: { destinationName: "ggu", imageSrc: "./France.jpg" },
+
+        dest5: { destinationName: "ggu", imageSrc: "./France.jpg" },
+
+        dest6: { destinationName: "ggu", imageSrc: "./France.jpg" },
+
     },
     {
         Place: "Munnar",

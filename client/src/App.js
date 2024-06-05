@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homecheck from './pages/Homecheck/Homecheck';
 import Package from './pages/Package/Package';
+import Login from './pages/Login/Login';
 
 function NotFound() {
   return (
@@ -17,6 +18,7 @@ function App() {
     <Router>
       <div>
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/homecheck" element={<Homecheck />} />
           <Route path="/package/:place" element={<Package />} />
           <Route path="*" element={<NotFound />} />

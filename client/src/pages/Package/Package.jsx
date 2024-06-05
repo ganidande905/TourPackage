@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 // import '../../../public/css/package.css'
+
 function App() {
     const { place } = useParams();
     const [placeData, setPlaceData] = useState(null);
@@ -69,7 +70,7 @@ function App() {
                 color: #000000;
             }
             .Main {
-                background-image: url('../../../public/assets/France.jpg');
+                
                 height: 90vh;
                 background-attachment: fixed;
                 background-position: center;
@@ -181,16 +182,25 @@ function App() {
                     <li><a href="#" target="_blank">LogIn</a></li>
                 </ul>
             </header>
-            <div className="Main">{placeData.Place}</div>
+            <div className="Main" style={{position: "relative"}}>
+    <p className='Main' style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>{placeData.Place}</p>
+    <img className='Main' style={{objectFit: "cover", width: "100%", height: "100%"}} src={require(`${placeData.Imger}`)} />
+</div>
+
+
             <div className="content">
                 <h1>Explore More!</h1>
+                {/* <img src={require('./France.jpg')}/> */}
             </div>
             <div className="section1">
                 {Object.values(placeData).map((dest, index) => (
                     dest && dest.destinationName && dest.imageSrc && (
-                        <div key={index} className={`items ${dest.destinationName.toLowerCase().replace(/\s/g, '-')}`}>
+                        <div style={{backgroundImage: `url(${dest.imageSrc})`, backgroundSize:"cover", position: "relative"}} key={index} className={`items ${dest.destinationName.toLowerCase().replace(/\s/g, '-')}`}>
+                        <div style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
                             <p>{dest.destinationName}</p>
                         </div>
+                        <img style={{flex:"1"}} src={require(`${dest.imageSrc}`)} width={500} height={500}/>
+                    </div>
                     )
                 ))}
             </div>
