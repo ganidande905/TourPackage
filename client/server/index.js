@@ -8,7 +8,11 @@ const crypto= require('crypto');
 const cors = require('cors');
 const port = 7000;
 
-
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true  // This allows cookies to be sent to the client
+  }));
+  
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -18,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'public')));
-app.use(cors());
+
 
 
 
@@ -86,56 +90,62 @@ let placesList = [
     },
     {
         Place: "Ladakh",
-        Imger:"./France.jpg",
+        Imger:"./ladakh/ladakh_main.jpeg",
 
-        dest1: { destinationName: "Paris", imageSrc: "./France.jpg" },
-        dest2: { destinationName: "ggu", imageSrc: "./France.jpg" },
-        dest3: { destinationName: "ggu", imageSrc: "./France.jpg" },
+        dest1: { destinationName: "Hemis Monastry", imageSrc: "./ladakh/Hemis_Monastry.jpg" },
+        dest2: { destinationName: "Khardung la", imageSrc: "./ladakh/Khardung_La.jpg" },
+        dest3: { destinationName: "Nubra vally", imageSrc: "./ladakh/Nubra_vally.jpg" },
 
-        dest4: { destinationName: "ggu", imageSrc: "./France.jpg" },
+        dest4: { destinationName: "pangong", imageSrc: "./ladakh/pangong.jpeg" },
 
-        dest5: { destinationName: "ggu", imageSrc: "./France.jpg" },
+        dest5: { destinationName: "Shanti stupa", imageSrc: "./ladakh/Shanti_Stupa.jpg" },
 
-        dest6: { destinationName: "ggu", imageSrc: "./France.jpg" },
+        dest6: { destinationName: "Thiksey monastry", imageSrc: "./ladakh/Thiksey_monastry.jpg" },
 
     },
     {
         Place: "Munnar",
-        dest1: { destinationName: "Tea Gardens", imageSrc: "imgsrclink" },
-        dest2: { destinationName: "Eravikulam National Park", imageSrc: "imgsrclink" },
-        dest3: { destinationName: "Mattupetty Dam", imageSrc: "imgsrclink" },
-        dest4: { destinationName: "Attukal Waterfalls", imageSrc: "imgsrclink" },
-        dest5: { destinationName: "Anamudi Peak", imageSrc: "imgsrclink" },
-        dest6: { destinationName: "Kundala Lake", imageSrc: "imgsrclink" }
+        Imger:"./munnar/munnar_main.jpg",
+        dest1: { destinationName: "Tea Gardens", imageSrc: "./munnar/tea_plantation.png" },
+        dest2: { destinationName: "Eravikulam National Park", imageSrc: "./munnar/eravikulam_national_park.jpg" },
+        dest3: { destinationName: "Mattupetty Dam", imageSrc: "./munnar/maattupetty.jpg" },
+        dest4: { destinationName: "Attukal Waterfalls", imageSrc: "./munnar/Attukal_Waterfalls.jpg" },
+        dest5: { destinationName: "Anamudi Peak", imageSrc: "./munnar/Anamudi-Peak.jpg" },
+        dest6: { destinationName: "Kundala Lake", imageSrc: "./munnar/kundala_lake.jpg" }
     },
     {
         Place: "Varanasi",
-        dest1: { destinationName: "Kashi Vishwanath Temple", imageSrc: "imgsrclink" },
-        dest2: { destinationName: "Dashashwamedh Ghat", imageSrc: "imgsrclink" },
-        dest3: { destinationName: "Manikarnika Ghat", imageSrc: "imgsrclink" },
-        dest4: { destinationName: "Sarnath", imageSrc: "imgsrclink" },
-        dest5: { destinationName: "Assi Ghat", imageSrc: "imgsrclink" },
-        dest6: { destinationName: "Banaras Hindu University", imageSrc: "imgsrclink" }
+        Imger:"./varanasi/varanasi_main.jpg",
+        dest1: { destinationName: "Kashi Vishwanath Temple", imageSrc: "./varanasi/kasi_temple.jpg" },
+        dest2: { destinationName: "Dashashwamedh Ghat", imageSrc: "./varanasi/Dashashwamedh_Ghat.jpg" },
+        dest3: { destinationName: "Manikarnika Ghat", imageSrc: "./varanasi/" },
+        dest4: { destinationName: "Sarnath", imageSrc: "./varanasi/Sarnath.jpg" },
+        dest5: { destinationName: "Assi Ghat", imageSrc: "./varanasi/Assi_Ghat.jpg" },
+        dest6: { destinationName: "Gyanvapi", imageSrc: "./varanasi/gyanvapi.jpg" }
     },
     {
         Place: "Kanyakumari",
-        dest1: { destinationName: "Vivekananda Rock Memorial", imageSrc: "imgsrclink" },
-        dest2: { destinationName: "Thiruvalluvar Statue", imageSrc: "imgsrclink" },
-        dest3: { destinationName: "Kanyakumari Beach", imageSrc: "imgsrclink" },
-        dest4: { destinationName: "Padmanabhapuram Palace", imageSrc: "imgsrclink" },
-        dest5: { destinationName: "Gandhi Memorial", imageSrc: "imgsrclink" },
-        dest6: { destinationName: "Thanumalayan Temple", imageSrc: "imgsrclink" }
+        Imger:"./kanyakumari/Kanyakumari_main.jpg",
+        dest1: { destinationName: "Vivekananda Rock Memorial", imageSrc: "./kanyakumari/Vivekananda_Rock_memorial.jpg" },
+        dest2: { destinationName: "Thiruvalluvar Statue", imageSrc: "./kanyakumari/Thiruvalluvar_Statue.jpg" },
+        dest3: { destinationName: "Kanyakumari Beach", imageSrc: "./kanyakumari/Kanyakumari_Beach1.jpg" },
+        dest4: { destinationName: "Padmanabhapuram Palace", imageSrc: "./kanyakumari/Padmanabhapuram_Palace.jpg" },
+        dest5: { destinationName: "Gandhi Memorial", imageSrc: "./kanyakumari/Gandhi_Memorial.jpg" },
+        dest6: { destinationName: "Thanumalayan Temple", imageSrc: "./kanyakumari/Thanumalayan_Temple.jpg" }
     },
     {
         Place: "Delhi",
-        dest1: { destinationName: "India Gate", imageSrc: "imgsrclink" },
-        dest2: { destinationName: "Qutub Minar", imageSrc: "imgsrclink" },
-        dest3: { destinationName: "Red Fort", imageSrc: "imgsrclink" },
-        dest4: { destinationName: "Lotus Temple", imageSrc: "imgsrclink" },
-        dest5: { destinationName: "Humayun's Tomb", imageSrc: "imgsrclink" },
-        dest6: { destinationName: "Akshardham Temple", imageSrc: "imgsrclink" }
+        Imger:"./Delhi/delhi_main.jpg",
+        dest1: { destinationName: "India Gate", imageSrc: "./delhi/India_gate.jpg" },
+        dest2: { destinationName: "Qutub Minar", imageSrc: "./delhi/Qutub_Minar.jpg" },
+        dest3: { destinationName: "Red Fort", imageSrc: "./delhi/red_fort.jpeg" },
+        dest4: { destinationName: "Lotus Temple", imageSrc: "./delhi/Lotus_Temple.jpg" },
+        dest5: { destinationName: "Humayun's Tomb", imageSrc: "./delhi/Humayun's_Tomb.jpg" },
+        dest6: { destinationName: "Akshardham Temple", imageSrc: "./delhi/Akshardham_Temple.jpeg" }
     }
 ];
+
+
 
 
 
@@ -163,7 +173,7 @@ app.get('/package/:place',(req,res)=>{
     res.render('package');
 });
 
-app.post('/loginsubmit',(req,res)=>{
+app.post('/api/loginsubmit',(req,res)=>{
     const username = req.body.username;
     const password = req.body.password;
     console.log(username);
@@ -172,13 +182,17 @@ app.post('/loginsubmit',(req,res)=>{
         if (users[username].password === password) {
             const token=generateToken({username});
             res.cookie('token',token,{httpOnly:true});
+            
+            // res.redirect('/homepage');
+            return res.status(200).json({ message: 'Login successful' });
 
-            res.redirect('/homepage');
         } else {
-            res.send('Invalid username or password');
+            // res.send('Invalid username or password');
+            return res.status(401).json({ message: 'Invalid username or password' });
         }
     } else {
-        res.send('Invalid username or password');
+        // res.send('Invalid username or password');
+        return res.status(401).json({ message: 'Invalid username or password' });
     }
 });
 

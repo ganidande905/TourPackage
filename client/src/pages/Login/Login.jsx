@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 // import './login.css';
 
 function App() {
@@ -10,15 +11,17 @@ function App() {
     const circle2 = document.querySelector(".circle:nth-child(2)");
     const signform = document.querySelector(".sign-form");
 
-    signupbtn.onclick = function () {
-      app_desc.classList.add("active");
-      body.classList.add("active");
-      circle1.classList.add("active");
-      circle2.classList.add("active");
-      signform.classList.add("active");
-      document.querySelector(".signUpForm form").style.visibility = "visible";
-      document.querySelector('.inLoginForm form').style.visibility = "hidden";
-    };
+    if (signupbtn) {
+      signupbtn.onclick = function () {
+        app_desc.classList.add("active");
+        body.classList.add("active");
+        circle1.classList.add("active");
+        circle2.classList.add("active");
+        signform.classList.add("active");
+        document.querySelector(".signUpForm form").style.visibility = "visible";
+        document.querySelector('.inLoginForm form').style.visibility = "hidden";
+      };
+    }
 
     let currentSlide = 1;
     const slideCount = document.querySelectorAll('.slider img').length;
@@ -37,13 +40,47 @@ function App() {
   }, []);
 
 
-  const handleSubmit=()=>{
-    fetch('/loginSubmit')
-  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = {
+      username: event.target.elements.username.value,
+      password: event.target.elements.password.value
+    };
+    if (formData.username !== 'admin' || formData.password !== 'admin') {
+      alert('Invalid username or password. Please try again.');
+      return;
+    }
+    fetch('http://localhost:7000/api/loginsubmit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data here
+        console.log(data);
+        // Example: Redirect to homepage if login successful
+        if (data.success) {
+          window.location.href = '/homecheck';
+        } else {
+          alert('Login failed. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error logging in:', error);
+        window.location.href = '/homecheck';
+
+        // alert('An error occnurred. Please try again later.');
+      });
+  };
 
   return (
     <div className="App">
-      <style>
+    <style>
         {`.login-signup {
     width: 365px;
     z-index: 1;
@@ -575,8 +612,8 @@ function App() {
         </section>
       </div>
       <div className="inLoginForm">
-        <form className="sign-form">
-          <div className="title">
+        <form className="sign-form" onSubmit={handleSubmit}>
+          <div className="title" >
             <h3 style={{ fontFamily: 'Poppins, sans-serif' }}>LOGIN</h3>
           </div>
           <div className="inputGroup">
@@ -595,26 +632,7 @@ function App() {
               <span style={{ fontSize: '13px' }}>Forgot Password?</span>
             </a>
           </div>
-          <button className="submitForm" onclick="{handleSubmit}"type="submit">Login</button>
-          <div className="social">
-            <div className="go"><i className="fab fa-google"></i></div>
-            <div className="fb"><i className="fab fa-facebook" style={{ fontSize: '22px' }}></i></div>
-            <div className="in"><i className="fab fa-instagram" style={{ fontSize: '22px' }}></i></div>
-            <div className="tw">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-twitter-x"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                />
-              </svg>
-            </div>
-          </div>
+          <button className="submitForm"  type="submit">Login</button>
         </form>
       </div>
       <div className="doodle-class">
@@ -648,25 +666,7 @@ function App() {
             <input type="password" placeholder="Enter Password" id="password2" name="password2" />
           </div>
           <button className="submitForm">Signup</button>
-          <div className="social">
-            <div className="go"><i className="fab fa-google"></i></div>
-            <div className="fb"><i className="fab fa-facebook" style={{ fontSize: '22px' }}></i></div>
-            <div className="in"><i className="fab fa-instagram" style={{ fontSize: '22px' }}></i></div>
-            <div className="tw">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-twitter-x"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                />
-              </svg>
-            </div>
-          </div>
+
         </form>
       </div>
     </div>
