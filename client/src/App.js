@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Homecheck from './pages/Homecheck/Homecheck';
+import Homecheck from './pages/Homecheck/App';
 import Package from './pages/Package/Package';
 import Login from './pages/Login/Login';
 
